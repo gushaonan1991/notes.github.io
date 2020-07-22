@@ -99,7 +99,7 @@ theme: ayer
 deploy:
   type: git
   repo: https://github.com/hello-gsn/hello-gsn.github.io
-  branch: gh-pages
+  branch: master
 
 # hexo-generator-searchdb
 search:
