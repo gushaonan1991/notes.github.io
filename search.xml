@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>聪明的投资者</title>
+    <url>/2020/07/22/%E8%81%AA%E6%98%8E%E7%9A%84%E6%8A%95%E8%B5%84%E8%80%85/</url>
+    <content><![CDATA[<h1 id="聪明的投资者"><a href="#聪明的投资者" class="headerlink" title="聪明的投资者"></a>聪明的投资者</h1><ul>
+<li>特征：耐心、约束、学习能力、驾驭情绪、自我反思。</li>
+<li>关键：性格，而非智力。</li>
+</ul>
+<h1 id="投资与投机"><a href="#投资与投机" class="headerlink" title="投资与投机"></a>投资与投机</h1><ul>
+<li>投资：以深入分析为基础，在保证本金安全的情况下，追求适当回报。</li>
+<li>投机：不满足上述投资定义的业务。</li>
+<li>关键：<ul>
+<li>投机就是投机，别认为是投资，也不要太认真，更不要投入过多（10%）。</li>
+<li>永远不要把投资账户与投机账户混淆。</li>
+<li>永远不要在思想上将投资与投机混淆。</li>
+<li>永远不要使投机账户的金额超过10%。</li>
+</ul>
+</li>
+</ul>
+<h1 id="防御型投资者"><a href="#防御型投资者" class="headerlink" title="防御型投资者"></a>防御型投资者</h1><ul>
+<li>定义：关心资金安全的同时不想花过多时间和精力的人。</li>
+<li>投资策略：将资金按一定比例投资债券和股票两种证券，每种证券占比在 25% 至 75% 之间，按收益率动态平衡投入比例。</li>
+<li>收益目标：防御型投资者难以获得超出平均数的收益。</li>
+<li>互补做法：<ul>
+<li>购入投资基金的股份，类似与代理自己进行实际投资操作。</li>
+<li>购入信托基金或将资金交由专业投资咨询公司代理投资。</li>
+<li>美元成本平均法，即每月或每季度投入等额资金购买股票。</li>
+</ul>
+</li>
+</ul>
+<h1 id="激进型投资者"><a href="#激进型投资者" class="headerlink" title="激进型投资者"></a>激进型投资者</h1><ul>
+<li>关键：区分何种行动方针能提供合理的成功机会、何种行动方针无法成功。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>BodyParam 注解</title>
+    <url>/2020/07/21/BodyParam%20%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="#目录">目录</a></li>
+<li><a href="#需求概述">需求概述</a></li>
+<li><a href="#背景说明">背景说明</a></li>
+<li><a href="#设计方案">设计方案</a></li>
+<li><a href="#具体实现">具体实现</a></li>
+<li><a href="#遇到问题">遇到问题</a><ul>
+<li><a href="#问题">问题</a></li>
+<li><a href="#解法">解法</a></li>
+</ul>
+</li>
+<li><a href="#改进实现">改进实现</a></li>
+<li><a href="#参考文章">参考文章</a></li>
+</ul>
+<h1 id="需求概述"><a href="#需求概述" class="headerlink" title="需求概述"></a>需求概述</h1><p>在控制器方法签名中，直接通过变量名获取 POST 请求体中的参数。</p>
+<h1 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h1><p>在 SpringMVC 框架下，控制器方法想获取 POST 请求体，一般只能使用 @RequestBody 注解，常规使用方式如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方式 1：注解 + Map</span></span><br><span class="line"><span class="comment">// 注意：Map 实际从请求 Json 体转换而来，其中各键对应 Json 体中各字段。</span></span><br><span class="line"><span class="meta">@PostMapping</span>(...)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">create</span><span class="params">(@RequestBody Map&lt;String, Object&gt; map)</span> </span>&#123;...&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式 2：注解 + 对象</span></span><br><span class="line"><span class="comment">// 注意：这里 Params 是专门针对请求参数自定义的类型，内部各成员对应了请求 Json 体中各字段。</span></span><br><span class="line"><span class="meta">@PostMapping</span>(...)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">create</span><span class="params">(@RequestBody Params params)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述两种方式相对都比较繁琐：</p>
+<ul>
+<li>第一种方式从 Map 中利用字符串类型的键获取值对象，并需要主动转换为目标格式，被动跳过编译期检查而带来隐患。</li>
+<li>第二种方式需要专门定义请求参数类，当统一控制器中各方法的参数个数、类型、名称各不相同时需要创建很多参数类，使得后期维护成本较高。</li>
+</ul>
+<p>有没有办法能直接从请求 Json 体中获取某一或某几字段的值，并自动转换为目标格式呢？使用方式类似 @RequestParam：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(...)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">query</span><span class="params">(@RequestParam String p1, </span></span></span><br><span class="line"><span class="function"><span class="params">                    @RequestParam Object p2, </span></span></span><br><span class="line"><span class="function"><span class="params">                    @RequestParam Params p3)</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>可惜 @RequestParam 只能应用在 URL 参数或 form 形式的请求体上，对 Json 格式的请求体无能为力。</p>
+<h1 id="设计方案"><a href="#设计方案" class="headerlink" title="设计方案"></a>设计方案</h1><ul>
+<li>注解：以 @RequestParam 为蓝本，自定义注解 @BodyParam，它同样应用在方法参数上，代表该参数是从请求体中抽取、解析得到的。</li>
+<li>解析：定义注解解析器 BodyParamResolver，该解析器继承自 HandlerMethodArgumentResolver，Spring 框架会在传入方法参数前、解析方法参数时调用它，利用它来解析得到期望的参数值。</li>
+</ul>
+<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><blockquote>
+<p>BodyParam.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.PARAMETER)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> BodyParam &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>BodyParamResolver.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BodyParamResolver</span> <span class="keyword">implements</span> <span class="title">HandlerMethodArgumentResolver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supportsParameter</span><span class="params">(MethodParameter parameter)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> parameter.getParameterAnnotation(BodyParam<span class="class">.<span class="keyword">class</span>) !</span>= <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">resolveArgument</span><span class="params">(MethodParameter parameter,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  ModelAndViewContainer mavContainer,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  NativeWebRequest webRequest,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  WebDataBinderFactory binderFactory)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        String name = getParamName(parameter);</span><br><span class="line">        String body = readNativeBody(webRequest);</span><br><span class="line">        <span class="keyword">return</span> parse(parameter, name, body);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getParamName</span><span class="params">(MethodParameter parameter)</span> </span>&#123;</span><br><span class="line">        String name = parameter.getParameterAnnotation(BodyParam<span class="class">.<span class="keyword">class</span>).<span class="title">value</span>()</span>;</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isBlank(name)) &#123;</span><br><span class="line">            name = parameter.getParameterName();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">readNativeBody</span><span class="params">(NativeWebRequest webRequest)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        HttpServletRequest req = webRequest.getNativeRequest(</span><br><span class="line">                HttpServletRequest<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 每次获取的流对象都不同，所以要使用变量保存，避免在循环中重复调用 get 方法。</span></span><br><span class="line">        <span class="comment">// 至于为什么流对象每次会变，可参看后面遇到的问题及解法。</span></span><br><span class="line">        BufferedReader r = req.getReader();</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">char</span>[] buffer = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = r.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            sb.append(buffer, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Object <span class="title">parse</span><span class="params">(MethodParameter parameter, String name, String body)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Class&lt;?&gt; type = parameter.getParameterType();</span><br><span class="line">        JsonNode node = JsonUtils.parse(body).get(name);</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span> || node <span class="keyword">instanceof</span> NullNode) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> JsonUtils.parse(node, type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>applicationContext-mvc.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:argument-resolvers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.sankuai.hulk.nodemanager.api.standard.BodyParamResolver"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:argument-resolvers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>每个参数解析时都要重新读取请求体、解析 Json，但是 HttpServletRequest 默认数据流在首次输出结束后即被关闭，也就是只有第一个参数会被解析出来，其他参数都没法获取到。<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2></li>
+</ul>
+<ol>
+<li>创建可以多次读取请求体的新请求类型 MultiReadHttpServletRequest，在初始化该请求时即从 HttpServletRequest 读取一次请求体并保存到本地，以后外部服务每次要获取数据流时都返回一个新的流对象。</li>
+<li>为了应用新请求类型，需要定义一个 Filter 负责将原始 HttpServletRequest 替换为包装后的新请求，该 Filter 优先级较低，要在其他 Filter 完成对请求的修饰、处理后再执行。</li>
+</ol>
+<h1 id="改进实现"><a href="#改进实现" class="headerlink" title="改进实现"></a>改进实现</h1><blockquote>
+<p>MultiReadHttpServletRequest.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MultiReadHttpServletRequest</span> <span class="keyword">extends</span> <span class="title">HttpServletRequestWrapper</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">byte</span>[] body;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MultiReadHttpServletRequest</span><span class="params">(HttpServletRequest req)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(req);</span><br><span class="line">        <span class="keyword">this</span>.body = IOUtils.toByteArray(req.getInputStream());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意：不要缓存输入流，每次返回新的流对象，多次获取才不会冲突。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletInputStream <span class="title">getInputStream</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> InputStream(body);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BufferedReader <span class="title">getReader</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(getInputStream(),</span><br><span class="line">                getCharacterEncoding()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InputStream</span> <span class="keyword">extends</span> <span class="title">ServletInputStream</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> ByteArrayInputStream inner;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">InputStream</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">            inner = <span class="keyword">new</span> ByteArrayInputStream(bytes);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> inner.read();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>MultiReadRequestFilter.java</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MultiReadRequestFilter</span> <span class="keyword">extends</span> <span class="title">GenericFilterBean</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest request, ServletResponse response,</span></span></span><br><span class="line"><span class="function"><span class="params">                         FilterChain chain)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        chain.doFilter(<span class="keyword">new</span> MultiReadHttpServletRequest(</span><br><span class="line">                (HttpServletRequest) request), response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>web.xml</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MultiReadRequestFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.sankuai.hulk.nodemanager.api.standard.MultiReadRequestFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MultiReadRequestFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a href="https://javacfox.github.io/2019/06/28/%E5%AE%9E%E7%8E%B0HttpServletRequest-getInputStream%E5%A4%9A%E6%AC%A1%E8%AF%BB%E5%8F%96/" target="_blank" rel="noopener">实现 HttpServletRequest.getInputStream 多次读取</a></li>
+<li><a href="https://stackoverflow.com/questions/10210645/http-servlet-request-lose-params-from-post-body-after-read-it-once/17129256#17129256" target="_blank" rel="noopener">Http Servlet request lose params from POST body after read it once</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发技术</category>
+        <category>Java</category>
+        <category>工具设计</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>注解</tag>
+        <tag>实现</tag>
+      </tags>
+  </entry>
+</search>
