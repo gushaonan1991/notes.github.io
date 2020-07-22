@@ -98,7 +98,7 @@ theme: ayer
 # Deployment
 deploy:
   type: git
-  repo: https://github.com/hello-gsn/notes.github.io
+  repo: https://github.com/hello-gsn/hello-gsn.github.io
   branch: gh-pages
 
 # hexo-generator-searchdb
