@@ -1,13 +1,8 @@
 ---
 title: VS Code 使用技巧
 date: 2020-08-06
-categories: 
-    - 编辑工具
-tags:
-    - VS Code
-    - 技巧
-    - 编辑
-    - 工具
+categories: [日常应用, 编辑工具]
+tags: [VS Code, 技巧, 编辑, 工具]
 ---
 - [修改默认语言支持](#修改默认语言支持)
   - [需求](#需求)
