@@ -1,14 +1,8 @@
 ---
 title: BodyParam 注解
 date: 2020-07-21
-categories:
-    - 开发技术
-    - Java
-    - 工具设计
-tags:
-    - 工具
-    - 注解
-    - 实现
+categories: [开发技术, Java, 工具设计]
+tags: [工具, 注解, 实现]
 ---
 - [需求概述](#需求概述)
 - [背景说明](#背景说明)
