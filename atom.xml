@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hello-gsn.github.io/"/>
-  <updated>2020-07-26T16:38:43.377Z</updated>
+  <updated>2020-08-06T10:10:49.243Z</updated>
   <id>https://hello-gsn.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VS Code 使用技巧</title>
+    <link href="https://hello-gsn.github.io/2020/08/06/VS%20Code%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>https://hello-gsn.github.io/2020/08/06/VS%20Code%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
+    <published>2020-08-05T16:00:00.000Z</published>
+    <updated>2020-08-06T10:10:49.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#修改默认语言支持&quot;&gt;修改默认语言支持&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#需求&quot;&gt;需求&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#方法&quot;&gt;方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="编辑工具" scheme="https://hello-gsn.github.io/categories/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="https://hello-gsn.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="VS Code" scheme="https://hello-gsn.github.io/tags/VS-Code/"/>
+    
+      <category term="技巧" scheme="https://hello-gsn.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="编辑" scheme="https://hello-gsn.github.io/tags/%E7%BC%96%E8%BE%91/"/>
+    
+  </entry>
   
   <entry>
     <title>聪明的投资者</title>

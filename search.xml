@@ -128,4 +128,46 @@
         <tag>实现</tag>
       </tags>
   </entry>
+  <entry>
+    <title>VS Code 使用技巧</title>
+    <url>/2020/08/06/VS%20Code%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<ul>
+<li><a href="#修改默认语言支持">修改默认语言支持</a><ul>
+<li><a href="#需求">需求</a></li>
+<li><a href="#方法">方法</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="修改默认语言支持"><a href="#修改默认语言支持" class="headerlink" title="修改默认语言支持"></a>修改默认语言支持</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>VS Code 默认将新建的匿名文件视为普通文本格式，我希望它能直接以 Markdown 格式解析。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ol>
+<li><p>临时方案：针对当前文件</p>
+<ul>
+<li>打开全局查询（F1）</li>
+<li>找到 Change Language Mode 选项</li>
+<li>选择目标格式 Markdown</li>
+<li>注意：打开 Change Language Mode 项的快捷键为（cmd&amp;k -&gt; m）</li>
+</ul>
+</li>
+<li><p>长期方案：修改默认配置</p>
+<ul>
+<li>打开 User Settings</li>
+<li>修改 files.defaultLanguage 项为 markdown</li>
+</ul>
+</li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://stackoverflow.com/questions/35904221/change-vscode-default-language-for-new-files" target="_blank" rel="noopener">Change VsCode default language</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>编辑工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>VS Code</tag>
+        <tag>技巧</tag>
+        <tag>编辑</tag>
+      </tags>
+  </entry>
 </search>
