@@ -58,6 +58,47 @@
   </entry>
   
   <entry>
+    <title>怎样测试私有方法</title>
+    <link href="https://hello-gsn.github.io/2020/08/18/%E6%80%8E%E6%A0%B7%E6%B5%8B%E8%AF%95%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/"/>
+    <id>https://hello-gsn.github.io/2020/08/18/%E6%80%8E%E6%A0%B7%E6%B5%8B%E8%AF%95%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/</id>
+    <published>2020-08-17T16:00:00.000Z</published>
+    <updated>2020-08-18T18:03:23.487Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#背景&quot;&gt;背景&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#解法&quot;&gt;解法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#思考&quot;&gt;思考&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#参考&quot;&gt;参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发技术" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Java" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Java/"/>
+    
+      <category term="编程思想" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Java/%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/"/>
+    
+    
+      <category term="测试" scheme="https://hello-gsn.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="私有方法" scheme="https://hello-gsn.github.io/tags/%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="思想" scheme="https://hello-gsn.github.io/tags/%E6%80%9D%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VS Code 使用技巧</title>
     <link href="https://hello-gsn.github.io/2020/08/06/VS%20Code%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://hello-gsn.github.io/2020/08/06/VS%20Code%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
