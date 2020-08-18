@@ -176,4 +176,38 @@
         <tag>编辑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Mockito 使用入门</title>
+    <url>/2020/08/18/Mockito%20%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<ul>
+<li><a href="#基础入门">基础入门</a></li>
+<li><a href="#应用进阶">应用进阶</a></li>
+<li><a href="#官方文档">官方文档</a></li>
+<li><a href="#api-javadoc">Api JavaDoc</a></li>
+</ul>
+<h1 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h1><ul>
+<li><a href="https://www.tutorialspoint.com/mockito/index.htm" target="_blank" rel="noopener">Learn Mockito</a></li>
+</ul>
+<h1 id="应用进阶"><a href="#应用进阶" class="headerlink" title="应用进阶"></a>应用进阶</h1><ul>
+<li><a href="https://www.baeldung.com/mockito-series" target="_blank" rel="noopener">Mockito Tutorial Series</a></li>
+</ul>
+<h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><ul>
+<li><a href="https://github.com/mockito/mockito/wiki" target="_blank" rel="noopener">Mockito Github Home</a></li>
+</ul>
+<h1 id="Api-JavaDoc"><a href="#Api-JavaDoc" class="headerlink" title="Api JavaDoc"></a>Api JavaDoc</h1><ul>
+<li><a href="https://javadoc.io/static/org.mockito/mockito-core/3.5.0/org/mockito/Mockito.html" target="_blank" rel="noopener">Mockito Core JavaDoc</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发技术</category>
+        <category>Java</category>
+        <category>工具应用</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>应用</tag>
+        <tag>入门</tag>
+        <tag>测试</tag>
+      </tags>
+  </entry>
 </search>
