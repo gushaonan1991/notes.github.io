@@ -152,7 +152,7 @@
 </ul>
 <h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
 <li><p>怎样联合使用 <code>@RunWith(SpringJunit4ClassRunner.class)</code> 和 <code>@RunWith(MockitoJunitRunner.class)</code> ？</p>
-<p>目前无法联合使用，如何强行在父类加 Spring 注解，并在子类加 Mockito 注解，可能导致由 Spring 主动注入的 Bean 没有完成初始化。</p>
+<p>目前无法联合使用，如果强行在父类加 Spring 注解，并在子类加 Mockito 注解，可能导致由 Spring 主动注入的 Bean 没有完成初始化。</p>
 <p>解决方案：在 <code>@Before</code> 方法中执行 <code>MockitoAnnotations.init(this)</code> 主动初始化测试类中各 Mockito 注解。</p>
 <p>参考：</p>
 <ul>
