@@ -135,7 +135,8 @@
 <li><a href="#基础入门">基础入门</a></li>
 <li><a href="#应用进阶">应用进阶</a></li>
 <li><a href="#官方文档">官方文档</a></li>
-<li><a href="#api-javadoc">Api JavaDoc</a></li>
+<li><a href="#接口文档">接口文档</a></li>
+<li><a href="#常见问题">常见问题</a></li>
 </ul>
 <h1 id="基础入门"><a href="#基础入门" class="headerlink" title="基础入门"></a>基础入门</h1><ul>
 <li><a href="https://www.tutorialspoint.com/mockito/index.htm" target="_blank" rel="noopener">Learn Mockito</a></li>
@@ -146,9 +147,19 @@
 <h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><ul>
 <li><a href="https://github.com/mockito/mockito/wiki" target="_blank" rel="noopener">Mockito Github Home</a></li>
 </ul>
-<h1 id="Api-JavaDoc"><a href="#Api-JavaDoc" class="headerlink" title="Api JavaDoc"></a>Api JavaDoc</h1><ul>
+<h1 id="接口文档"><a href="#接口文档" class="headerlink" title="接口文档"></a>接口文档</h1><ul>
 <li><a href="https://javadoc.io/static/org.mockito/mockito-core/3.5.0/org/mockito/Mockito.html" target="_blank" rel="noopener">Mockito Core JavaDoc</a></li>
 </ul>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><ol>
+<li><p>怎样联合使用 <code>@RunWith(SpringJunit4ClassRunner.class)</code> 和 <code>@RunWith(MockitoJunitRunner.class)</code> ？</p>
+<p>目前无法联合使用，如何强行在父类加 Spring 注解，并在子类加 Mockito 注解，可能导致由 Spring 主动注入的 Bean 没有完成初始化。</p>
+<p>解决方案：在 <code>@Before</code> 方法中执行 <code>MockitoAnnotations.init(this)</code> 主动初始化测试类中各 Mockito 注解。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/24431427/multiple-runwith-statements-in-junit" target="_blank" rel="noopener">Multiple RunWith Statements in JUnit</a></li>
+</ul>
+</li>
+</ol>
  
       <!-- reward -->
       
