@@ -275,4 +275,32 @@
         <tag>思想</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hive 使用注意</title>
+    <url>/2020/08/31/Hive%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F/</url>
+    <content><![CDATA[<ul>
+<li><a href="#number-与-null-比较结果总为-false">Number 与 NULL 比较结果总为 false</a><ul>
+<li><a href="#说明">说明</a></li>
+<li><a href="#参考">参考</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Number-与-NULL-比较结果总为-false"><a href="#Number-与-NULL-比较结果总为-false" class="headerlink" title="Number 与 NULL 比较结果总为 false"></a>Number 与 NULL 比较结果总为 false</h2><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>不同类型的值做比较时，Hive 默认先进行类型转换，具体转换规则参考官方文档：<a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-NumericTypes" target="_blank" rel="noopener">Hive Data Types</a>。</p>
+<p>需要关注的是 <code>Number</code> 类型与 <code>NULL</code> 值比较或 <code>Number</code> 类型与 <code>Non-Number</code> 类型比较时，比较结果总是 <code>NULL</code>，也就等同与 <code>false</code>。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://stackoverflow.com/questions/50849151/what-happens-when-compare-string-to-int-in-hive" target="_blank" rel="noopener">What happens when compare string to int in hive?</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发技术</category>
+        <category>Data</category>
+        <category>Hive</category>
+      </categories>
+      <tags>
+        <tag>技巧</tag>
+        <tag>应用</tag>
+        <tag>Hive</tag>
+        <tag>注意</tag>
+      </tags>
+  </entry>
 </search>

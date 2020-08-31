@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hello-gsn.github.io/"/>
-  <updated>2020-08-19T09:11:39.228Z</updated>
+  <updated>2020-08-31T05:20:02.075Z</updated>
   <id>https://hello-gsn.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hive 使用注意</title>
+    <link href="https://hello-gsn.github.io/2020/08/31/Hive%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F/"/>
+    <id>https://hello-gsn.github.io/2020/08/31/Hive%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F/</id>
+    <published>2020-08-30T16:00:00.000Z</published>
+    <updated>2020-08-31T05:20:02.075Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#number-与-null-比较结果总为-false&quot;&gt;Number 与 NULL 比较结果总为 false&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#说明&quot;&gt;说明&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发技术" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Data" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Data/"/>
+    
+      <category term="Hive" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Data/Hive/"/>
+    
+    
+      <category term="技巧" scheme="https://hello-gsn.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="应用" scheme="https://hello-gsn.github.io/tags/%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="Hive" scheme="https://hello-gsn.github.io/tags/Hive/"/>
+    
+      <category term="注意" scheme="https://hello-gsn.github.io/tags/%E6%B3%A8%E6%84%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Mockito 使用入门</title>
