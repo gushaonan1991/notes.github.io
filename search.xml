@@ -303,4 +303,30 @@
         <tag>注意</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Vim 使用技巧</title>
+    <url>/2020/09/01/Vim%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<ul>
+<li><a href="#编辑技巧">编辑技巧</a><ul>
+<li><a href="#改变大小写">改变大小写</a></li>
+</ul>
+</li>
+<li><a href="#替换技巧">替换技巧</a></li>
+</ul>
+<h1 id="编辑技巧"><a href="#编辑技巧" class="headerlink" title="编辑技巧"></a>编辑技巧</h1><h2 id="改变大小写"><a href="#改变大小写" class="headerlink" title="改变大小写"></a>改变大小写</h2><ol>
+<li>可视化模式选中目标。</li>
+<li><code>gu</code>：将目标变为小写；<code>gU</code>：将目标变为大写。</li>
+</ol>
+<h1 id="替换技巧"><a href="#替换技巧" class="headerlink" title="替换技巧"></a>替换技巧</h1>]]></content>
+      <categories>
+        <category>日常应用</category>
+        <category>编辑工具</category>
+      </categories>
+      <tags>
+        <tag>技巧</tag>
+        <tag>Vim</tag>
+        <tag>编辑器</tag>
+        <tag>使用</tag>
+      </tags>
+  </entry>
 </search>
