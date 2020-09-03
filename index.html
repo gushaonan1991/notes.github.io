@@ -133,16 +133,45 @@
        
   <ul>
 <li><a href="#编辑技巧">编辑技巧</a><ul>
-<li><a href="#改变大小写">改变大小写</a></li>
+<li><a href="#如何改变大小写">如何改变大小写？</a></li>
 </ul>
 </li>
-<li><a href="#替换技巧">替换技巧</a></li>
+<li><a href="#替换技巧">替换技巧</a><ul>
+<li><a href="#如何实现零宽断言">如何实现零宽断言？</a></li>
 </ul>
-<h1 id="编辑技巧"><a href="#编辑技巧" class="headerlink" title="编辑技巧"></a>编辑技巧</h1><h2 id="改变大小写"><a href="#改变大小写" class="headerlink" title="改变大小写"></a>改变大小写</h2><ol>
+</li>
+<li><a href="#重复操作">重复操作</a><ul>
+<li><a href="#如何录制宏macro">如何录制宏（Macro）？</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="编辑技巧"><a href="#编辑技巧" class="headerlink" title="编辑技巧"></a>编辑技巧</h1><h2 id="如何改变大小写？"><a href="#如何改变大小写？" class="headerlink" title="如何改变大小写？"></a>如何改变大小写？</h2><ol>
 <li>可视化模式选中目标。</li>
 <li><code>gu</code>：将目标变为小写；<code>gU</code>：将目标变为大写。</li>
 </ol>
-<h1 id="替换技巧"><a href="#替换技巧" class="headerlink" title="替换技巧"></a>替换技巧</h1> 
+<h1 id="替换技巧"><a href="#替换技巧" class="headerlink" title="替换技巧"></a>替换技巧</h1><h2 id="如何实现零宽断言？"><a href="#如何实现零宽断言？" class="headerlink" title="如何实现零宽断言？"></a>如何实现零宽断言？</h2><p>Vim 的零宽断言规范与常用正则规范不同，具体如下：<br>|     |前向|后向|<br>|:—:|:—:|:—:|<br>|<strong>肯定</strong>| <code>(atom)\@&lt;=</code> | <code>(atom)\@=</code> |<br>|<strong>否定</strong>| <code>(atom)\@&lt;!</code> | <code>(atom)\@!</code> |</p>
+<ul>
+<li><p>注意</p>
+<ul>
+<li>在实际应用中，<code>(atom)</code> 左右的括号需要加反斜杠转义，即最终形式 <code>\(atom\)</code>，原因是 Vim 默认将括号等计为常规字符，转义后才具有功能特性。</li>
+</ul>
+</li>
+<li><p>参考</p>
+<ul>
+<li><a href="https://vim.fandom.com/wiki/Regex_lookahead_and_lookbehind" target="_blank" rel="noopener">Regex lookahead and lookbehind</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="重复操作"><a href="#重复操作" class="headerlink" title="重复操作"></a>重复操作</h1><h2 id="如何录制宏（Macro）？"><a href="#如何录制宏（Macro）？" class="headerlink" title="如何录制宏（Macro）？"></a>如何录制宏（Macro）？</h2><p>流程示例：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qa    &#x2F;&#x2F; 开始录制，其中 a 代表寄存器序号，可选值 [a-zA-Z0-9]</span><br><span class="line">...   &#x2F;&#x2F; 录制中：一系列实际操作</span><br><span class="line">q     &#x2F;&#x2F; 结束录制</span><br><span class="line">@a    &#x2F;&#x2F; 运行一次 a 寄存器内宏操作</span><br><span class="line">@@    &#x2F;&#x2F; 重复运行上次宏操作</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>参考<ul>
+<li><a href="https://www.cnblogs.com/ini_always/archive/2011/09/21/2184446.html" target="_blank" rel="noopener">Vim 重复操作的宏录制</a></li>
+<li><a href="https://vim.fandom.com/wiki/Macros" target="_blank" rel="noopener">Vim Macros Tutorial</a></li>
+<li><a href="https://vimhelp.org/repeat.txt.html#complex-repeat" target="_blank" rel="noopener">Vim Help: complex-repeat</a></li>
+</ul>
+</li>
+</ul>
+ 
       <!-- reward -->
       
     </div>
