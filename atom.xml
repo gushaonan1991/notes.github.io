@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hello-gsn.github.io/"/>
-  <updated>2020-09-03T03:46:55.763Z</updated>
+  <updated>2020-10-16T07:13:44.721Z</updated>
   <id>https://hello-gsn.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>勿要滥用 Optional</title>
+    <link href="https://hello-gsn.github.io/2020/10/15/%E5%8B%BF%E8%A6%81%E6%BB%A5%E7%94%A8%20Optional/"/>
+    <id>https://hello-gsn.github.io/2020/10/15/%E5%8B%BF%E8%A6%81%E6%BB%A5%E7%94%A8%20Optional/</id>
+    <published>2020-10-14T16:00:00.000Z</published>
+    <updated>2020-10-16T07:13:44.721Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#optional-个人理解&quot;&gt;Optional 个人理解&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#optional-滥用问题&quot;&gt;Optional 滥用问题&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发技术" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Java" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Java/"/>
+    
+      <category term="语言技巧" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Java/%E8%AF%AD%E8%A8%80%E6%8A%80%E5%B7%A7/"/>
+    
+    
+      <category term="Optional" scheme="https://hello-gsn.github.io/tags/Optional/"/>
+    
+      <category term="Java" scheme="https://hello-gsn.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Vim 使用技巧</title>

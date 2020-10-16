@@ -358,4 +358,60 @@
         <tag>使用</tag>
       </tags>
   </entry>
+  <entry>
+    <title>勿要滥用 Optional</title>
+    <url>/2020/10/15/%E5%8B%BF%E8%A6%81%E6%BB%A5%E7%94%A8%20Optional/</url>
+    <content><![CDATA[<ul>
+<li><a href="#optional-个人理解">Optional 个人理解</a></li>
+<li><a href="#optional-滥用问题">Optional 滥用问题</a><ul>
+<li><a href="#滥用表现">滥用表现</a></li>
+<li><a href="#解决方法">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#参考">参考</a></li>
+</ul>
+<h1 id="Optional-个人理解"><a href="#Optional-个人理解" class="headerlink" title="Optional 个人理解"></a>Optional 个人理解</h1><p>Optional 是 Java 语言从 JDK8 版本开始提供的一种容器类，它可以承接、包裹任意类型的对象（包括 null），并在其上提供 getter 方法及 null 值处理方法。</p>
+<p>个人理解，Optional 主要解决两方面问题：</p>
+<ol>
+<li>解决传统工程中 null 值判断过于频繁所造成处理逻辑繁复的问题。</li>
+<li>解决分散在工程各处的、隐藏的 NullPointerException 异常频发的问题。</li>
+</ol>
+<h1 id="Optional-滥用问题"><a href="#Optional-滥用问题" class="headerlink" title="Optional 滥用问题"></a>Optional 滥用问题</h1><h2 id="滥用表现"><a href="#滥用表现" class="headerlink" title="滥用表现"></a>滥用表现</h2><ol>
+<li>类中声明 Optional 类型成员变量。</li>
+<li>方法中声明 Optional 类型参数。</li>
+<li>私有方法声明 Optional 类型返回值。</li>
+<li>所有 getter 类型方法都声明 Optional 类型返回值。</li>
+<li>本应返回非 null 对象的业务处理方法声明了一个 Optional 类型返回值。</li>
+</ol>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>要理解为什么上述几种使用方式属于滥用，就要理清 Optional 能够解决 null 判定问题的原因。<br>根本原因并不在于它的语法和功能，而在于它的“语义”或者说“涵义”：</p>
+<ul>
+<li>接口方法返回了 Optional 对象时，我们可以认为接口提供方明确声明该接口可能返回无效（null）结果，如何应对就交由调用方来决策。</li>
+<li>接口方法返回非 Optional 对象时，我们认为接口提供方隐性声明该接口仅会返回有效（非 null）结果，验证和保障结果有效性的能力由方法或承载类来提供。<ul>
+<li>保障 getter 类型方法不会返回 null：在构造函数或成员 setter 方法中就对传入的参数做 null 检测，提前抛出 NPE。</li>
+<li>保障业务处理方法不会返回 null：处理逻辑执行结束后、返回结果前做 null 检测。</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户认证信息。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserIdentifyInfo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String idNumber; <span class="comment">// 身份证号，不会是 null</span></span><br><span class="line">    <span class="keyword">private</span> String userName; <span class="comment">// 用户名，不会是 null</span></span><br><span class="line">    <span class="keyword">private</span> String address;  <span class="comment">// 住址，可能是 null</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserIdentifyInfo</span><span class="params">(String idNumber, String userName, String address)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.idNumber = Preconditions.checkNotNull(idNumber);</span><br><span class="line">        <span class="keyword">this</span>.userName = Preconditions.checkNotNull(userName);</span><br><span class="line">        <span class="keyword">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIdNumber</span><span class="params">(String idNumber)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.idNumber = Preconditions.checkNotNull(idNumber);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getIdNumber</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.idNumber;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String userName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userName = Preconditions.checkNotNull(userName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUserName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.userName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.address = address;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Optional&lt;String&gt; <span class="title">getAddress</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(<span class="keyword">this</span>.address);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用户认证服务。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserIdentifyService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Optional&lt;String&gt; <span class="title">findUserById</span><span class="params">(String idNumber)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 业务逻辑代码</span></span><br><span class="line">        String userName = ...;</span><br><span class="line">        <span class="keyword">return</span> Optional.ofNullable(userName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>理清 Optional 显明和隐含涵义之后，我们就可以看到只有那些涉及对外交互的接口声明返回 Optional 才有意义，因此 1、2、3 点属于滥用范围。<br>当然对第三点（私有方法返回 Optional）可以根据实际场景适当放宽限定，比如为实现更优雅的流式调用，可以让部分细粒度、业务逻辑简单的 private 方法也返回 Optional。<br>即使是对外交互接口，也要根据业务含义按需确定是否返回 Optional 结果，如果结果不是可选，在方法内抛出异常更佳。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html" target="_blank" rel="noopener">Optional</a></li>
+<li><a href="https://blog.joda.org/2015/08/java-se-8-optional-pragmatic-approach.html" target="_blank" rel="noopener">Java SE 8 Optional, a pragmatic approach</a></li>
+<li><a href="https://nipafx.dev/intention-revealing-code-java-8-optional#" target="_blank" rel="noopener">Intention Revealing Code With Optional</a></li>
+<li><a href="https://stackoverflow.com/questions/26327957/should-java-8-getters-return-optional-type" target="_blank" rel="noopener">Should Java 8 getters return optional type?</a></li>
+<li><a href="https://dzone.com/articles/using-optional-correctly-is-not-optional" target="_blank" rel="noopener">26 Reasons Why Using Optional Correctly Is Not Optional</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发技术</category>
+        <category>Java</category>
+        <category>语言技巧</category>
+      </categories>
+      <tags>
+        <tag>Optional</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
 </search>
