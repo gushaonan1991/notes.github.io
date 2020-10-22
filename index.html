@@ -444,6 +444,7 @@
 </li>
 <li><a href="#替换技巧">替换技巧</a><ul>
 <li><a href="#如何实现零宽断言">如何实现零宽断言？</a></li>
+<li><a href="#如何改变正则的-magic-模式">如何改变正则的 magic 模式？</a></li>
 </ul>
 </li>
 <li><a href="#重复操作">重复操作</a><ul>
@@ -494,6 +495,59 @@
 <li><p>参考</p>
 <ul>
 <li><a href="https://vim.fandom.com/wiki/Regex_lookahead_and_lookbehind" target="_blank" rel="noopener">Regex lookahead and lookbehind</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="如何改变正则的-magic-模式？"><a href="#如何改变正则的-magic-模式？" class="headerlink" title="如何改变正则的 magic 模式？"></a>如何改变正则的 magic 模式？</h2><p>magic 模式决定 Vim 对字符的翻译方式，是直译或是转义，有四种选项：</p>
+<ul>
+<li>magic：默认模式，也可在表达式中使用 <code>\m</code> 主动触发，表示其后的内容中，规定的字符默认会具备转义含义，不再被当做文本字符直译。</li>
+<li>nomagic：表达式中使用 <code>\M</code> 触发，表示其后的内容中，除 ^、$ 两个标记行首尾的转义字符外，其他字符都按字面义直译。</li>
+<li>very-magic：表达式中使用 <code>\v</code> 触发，表示其后的内容中，只有 0-9a-zA-z 和 _ 字符为直译字符，其他字符都默认具备转义含义。</li>
+<li>very-nomagic：表达式中使用 <code>\V</code> 触发，表示其后的内容中，所有字符都为直译字符。</li>
+</ul>
+<p>magic 模式下默认转义的字符集合：</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">^</td>
+<td align="center">行首</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">行尾</td>
+</tr>
+<tr>
+<td align="center">.</td>
+<td align="center">任意字符</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">任意次数</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">上次执行的替换表达式中的替换字符串</td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">列表范围</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>注意</p>
+<ul>
+<li>在上述所有模式中，转义字符 \ 都是表达转义含义的功能性字符。</li>
+</ul>
+</li>
+<li><p>参考</p>
+<ul>
+<li><a href="http://vimdoc.sourceforge.net/htmldoc/pattern.html#/magic" target="_blank" rel="noopener">VimDoc#pattern#magic</a></li>
+<li><a href="http://yyq123.github.io/learn-vim/learn-vim-Regex-4MagicModes.html" target="_blank" rel="noopener">VIM学习笔记 4 种 Magic 模式</a></li>
 </ul>
 </li>
 </ul>
