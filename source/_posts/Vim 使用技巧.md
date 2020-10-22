@@ -9,6 +9,7 @@ categories: [Vim, 日常应用, 编辑工具]
   - [如何将内容复制到系统剪切板？](#如何将内容复制到系统剪切板)
 - [替换技巧](#替换技巧)
   - [如何实现零宽断言？](#如何实现零宽断言)
+  - [如何改变正则的 magic 模式？](#如何改变正则的-magic-模式)
 - [重复操作](#重复操作)
   - [如何录制宏（Macro）？](#如何录制宏macro)
 
@@ -39,6 +40,31 @@ Vim 的零宽断言规范与常用正则规范不同，具体如下：
 
 * 参考
   * [Regex lookahead and lookbehind](https://vim.fandom.com/wiki/Regex_lookahead_and_lookbehind)
+
+## 如何改变正则的 magic 模式？
+magic 模式决定 Vim 对字符的翻译方式，是直译或是转义，有四种选项：
+* magic：默认模式，也可在表达式中使用 `\m` 主动触发，表示其后的内容中，规定的字符默认会具备转义含义，不再被当做文本字符直译。
+* nomagic：表达式中使用 `\M` 触发，表示其后的内容中，除 ^、$ 两个标记行首尾的转义字符外，其他字符都按字面义直译。
+* very-magic：表达式中使用 `\v` 触发，表示其后的内容中，只有 0-9a-zA-z 和 _ 字符为直译字符，其他字符都默认具备转义含义。
+* very-nomagic：表达式中使用 `\V` 触发，表示其后的内容中，所有字符都为直译字符。
+
+magic 模式下默认转义的字符集合：
+
+|字符|含义|
+|:---:|:---:|
+|^|行首|
+|$|行尾|
+|.|任意字符|
+|*|任意次数|
+|~|上次执行的替换表达式中的替换字符串|
+|[]|列表范围|
+
+* 注意
+  * 在上述所有模式中，转义字符 \ 都是表达转义含义的功能性字符。
+
+* 参考
+  * [VimDoc#pattern#magic](http://vimdoc.sourceforge.net/htmldoc/pattern.html#/magic)
+  * [VIM学习笔记 4 种 Magic 模式](http://yyq123.github.io/learn-vim/learn-vim-Regex-4MagicModes.html)
 
 # 重复操作
 ## 如何录制宏（Macro）？
