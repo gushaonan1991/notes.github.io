@@ -79,7 +79,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">277</span>
+            <span class="post-count">418</span>
         </span>
     </span>
 
@@ -106,6 +106,7 @@
   <ul>
 <li><a href="#编辑技巧">编辑技巧</a><ul>
 <li><a href="#如何改变大小写">如何改变大小写？</a></li>
+<li><a href="#如何将内容复制到系统剪切板">如何将内容复制到系统剪切板？</a></li>
 </ul>
 </li>
 <li><a href="#替换技巧">替换技巧</a><ul>
@@ -120,6 +121,16 @@
 <h1 id="编辑技巧"><a href="#编辑技巧" class="headerlink" title="编辑技巧"></a>编辑技巧</h1><h2 id="如何改变大小写？"><a href="#如何改变大小写？" class="headerlink" title="如何改变大小写？"></a>如何改变大小写？</h2><ol>
 <li>可视化模式选中目标。</li>
 <li><code>gu</code>：将目标变为小写；<code>gU</code>：将目标变为大写。</li>
+</ol>
+<h2 id="如何将内容复制到系统剪切板？"><a href="#如何将内容复制到系统剪切板？" class="headerlink" title="如何将内容复制到系统剪切板？"></a>如何将内容复制到系统剪切板？</h2><ol>
+<li>在常规模式或可视化模式下选中要复制的内容。</li>
+<li>输入命令 <code>&quot;*y</code>，内容会直接复制到系统剪切板，同 <code>Ctrl+C</code> 复制操作效果相同，同样可以使用 <code>Ctrl+V</code> 粘贴。<ol>
+<li>命令中的引号（”）用来选择寄存器。</li>
+<li>命令中的星号（*）表示系统寄存器。</li>
+<li>命令中的字符（y）即复制操作 <code>yank</code>。</li>
+</ol>
+</li>
+<li>寄存器更多香瓜内容记录在：<a href="/2020/10/20/Vim%20%E5%AF%84%E5%AD%98%E5%99%A8/" title="Vim 寄存器">Vim 寄存器</a>。</li>
 </ol>
 <h1 id="替换技巧"><a href="#替换技巧" class="headerlink" title="替换技巧"></a>替换技巧</h1><h2 id="如何实现零宽断言？"><a href="#如何实现零宽断言？" class="headerlink" title="如何实现零宽断言？"></a>如何实现零宽断言？</h2><p>Vim 的零宽断言规范与常用正则规范不同，具体如下：<br>|     |前向|后向|<br>|:—:|:—:|:—:|<br>|<strong>肯定</strong>| <code>(atom)\@&lt;=</code> | <code>(atom)\@=</code> |<br>|<strong>否定</strong>| <code>(atom)\@&lt;!</code> | <code>(atom)\@!</code> |</p>
 <ul>
