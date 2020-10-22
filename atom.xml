@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hello-gsn.github.io/"/>
-  <updated>2020-10-19T09:11:57.241Z</updated>
+  <updated>2020-10-22T09:11:54.827Z</updated>
   <id>https://hello-gsn.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vim 寄存器</title>
+    <link href="https://hello-gsn.github.io/2020/10/20/Vim%20%E5%AF%84%E5%AD%98%E5%99%A8/"/>
+    <id>https://hello-gsn.github.io/2020/10/20/Vim%20%E5%AF%84%E5%AD%98%E5%99%A8/</id>
+    <published>2020-10-19T16:00:00.000Z</published>
+    <updated>2020-10-22T09:11:54.827Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#使用&quot;&gt;使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#说明&quot;&gt;说明&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#常用&quot;&gt;常用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="日常应用" scheme="https://hello-gsn.github.io/categories/%E6%97%A5%E5%B8%B8%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="编辑工具" scheme="https://hello-gsn.github.io/categories/%E6%97%A5%E5%B8%B8%E5%BA%94%E7%94%A8/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="工具" scheme="https://hello-gsn.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="Vim" scheme="https://hello-gsn.github.io/tags/Vim/"/>
+    
+      <category term="寄存器" scheme="https://hello-gsn.github.io/tags/%E5%AF%84%E5%AD%98%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>ARTS 初衷</title>
