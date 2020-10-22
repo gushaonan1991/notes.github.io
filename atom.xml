@@ -129,7 +129,7 @@
     <link href="https://hello-gsn.github.io/2020/09/01/Vim%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>https://hello-gsn.github.io/2020/09/01/Vim%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</id>
     <published>2020-08-31T16:00:00.000Z</published>
-    <updated>2020-10-22T09:52:10.313Z</updated>
+    <updated>2020-10-22T09:58:59.803Z</updated>
     
     <summary type="html">
     
@@ -147,9 +147,11 @@
     </summary>
     
     
-      <category term="日常应用" scheme="https://hello-gsn.github.io/categories/%E6%97%A5%E5%B8%B8%E5%BA%94%E7%94%A8/"/>
+      <category term="Vim" scheme="https://hello-gsn.github.io/categories/Vim/"/>
     
-      <category term="编辑工具" scheme="https://hello-gsn.github.io/categories/%E6%97%A5%E5%B8%B8%E5%BA%94%E7%94%A8/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="日常应用" scheme="https://hello-gsn.github.io/categories/Vim/%E6%97%A5%E5%B8%B8%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="编辑工具" scheme="https://hello-gsn.github.io/categories/Vim/%E6%97%A5%E5%B8%B8%E5%BA%94%E7%94%A8/%E7%BC%96%E8%BE%91%E5%B7%A5%E5%85%B7/"/>
     
     
       <category term="技巧" scheme="https://hello-gsn.github.io/tags/%E6%8A%80%E5%B7%A7/"/>

@@ -335,7 +335,26 @@
 </li>
 <li>寄存器更多香瓜内容记录在：<a href="/2020/10/20/Vim%20%E5%AF%84%E5%AD%98%E5%99%A8/" title="Vim 寄存器">Vim 寄存器</a>。</li>
 </ol>
-<h1 id="替换技巧"><a href="#替换技巧" class="headerlink" title="替换技巧"></a>替换技巧</h1><h2 id="如何实现零宽断言？"><a href="#如何实现零宽断言？" class="headerlink" title="如何实现零宽断言？"></a>如何实现零宽断言？</h2><p>Vim 的零宽断言规范与常用正则规范不同，具体如下：<br>|     |前向|后向|<br>|:—:|:—:|:—:|<br>|<strong>肯定</strong>| <code>(atom)\@&lt;=</code> | <code>(atom)\@=</code> |<br>|<strong>否定</strong>| <code>(atom)\@&lt;!</code> | <code>(atom)\@!</code> |</p>
+<h1 id="替换技巧"><a href="#替换技巧" class="headerlink" title="替换技巧"></a>替换技巧</h1><h2 id="如何实现零宽断言？"><a href="#如何实现零宽断言？" class="headerlink" title="如何实现零宽断言？"></a>如何实现零宽断言？</h2><p>Vim 的零宽断言规范与常用正则规范不同，具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">前向</th>
+<th align="center">后向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>肯定</strong></td>
+<td align="center"><code>(atom)\@&lt;=</code></td>
+<td align="center"><code>(atom)\@=</code></td>
+</tr>
+<tr>
+<td align="center"><strong>否定</strong></td>
+<td align="center"><code>(atom)\@&lt;!</code></td>
+<td align="center"><code>(atom)\@!</code></td>
+</tr>
+</tbody></table>
 <ul>
 <li><p>注意</p>
 <ul>
@@ -359,6 +378,7 @@
 </ul>
 ]]></content>
       <categories>
+        <category>Vim</category>
         <category>日常应用</category>
         <category>编辑工具</category>
       </categories>
