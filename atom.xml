@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hello-gsn.github.io/"/>
-  <updated>2020-10-22T09:11:54.827Z</updated>
+  <updated>2020-10-26T04:40:04.661Z</updated>
   <id>https://hello-gsn.github.io/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 命令</title>
+    <link href="https://hello-gsn.github.io/2020/10/26/Linux%20%E5%91%BD%E4%BB%A4/"/>
+    <id>https://hello-gsn.github.io/2020/10/26/Linux%20%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-10-25T16:00:00.000Z</published>
+    <updated>2020-10-26T04:40:04.661Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#磁盘&quot;&gt;磁盘&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#lsblk&quot;&gt;lsblk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;磁盘&quot;&gt;&lt;a href=&quot;#磁盘&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="日积月累" scheme="https://hello-gsn.github.io/categories/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/"/>
+    
+      <category term="常用命令" scheme="https://hello-gsn.github.io/categories/%E6%97%A5%E7%A7%AF%E6%9C%88%E7%B4%AF/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="命令" scheme="https://hello-gsn.github.io/tags/%E5%91%BD%E4%BB%A4/"/>
+    
+      <category term="linux" scheme="https://hello-gsn.github.io/tags/linux/"/>
+    
+      <category term="积累" scheme="https://hello-gsn.github.io/tags/%E7%A7%AF%E7%B4%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Vim 寄存器</title>
