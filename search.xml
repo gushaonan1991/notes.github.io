@@ -661,4 +661,94 @@
         <tag>积累</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Shell 技巧</title>
+    <url>/2020/10/26/Shell%20%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<ul>
+<li><a href="#数据结构">数据结构</a><ul>
+<li><a href="#如何定义表结构">如何定义表结构？</a></li>
+</ul>
+</li>
+<li><a href="#输入输出">输入输出</a><ul>
+<li><a href="#如何解析命令行参数">如何解析命令行参数？</a></li>
+<li><a href="#如何将-stderr-重定向到-stdout">如何将 stderr 重定向到 stdout？</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="如何定义表结构？"><a href="#如何定义表结构？" class="headerlink" title="如何定义表结构？"></a>如何定义表结构？</h2><ul>
+<li><p>方法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> table 为表结构变量名</span></span><br><span class="line">declare -A table</span><br></pre></td></tr></table></figure></li>
+<li><p>注意：仅对 Bash 4 有效，因为该版 Bash 能直接声明表结构变量，旧版在语法上就不支持，转而功能上实现又太复杂。</p>
+</li>
+<li><p>补充：</p>
+<ul>
+<li><code>${table[@]}</code>：按添加顺序正序返回表的值集。</li>
+<li><code>${!table[@]}</code>：按添加顺序倒序返回表的键集。</li>
+</ul>
+</li>
+<li><p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 方法 1</span></span><br><span class="line">declare -A table</span><br><span class="line">table['word1']='hello'</span><br><span class="line">table['word2']='world'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 方法 2</span></span><br><span class="line">declare -A table=( ['word1']='hello' ['word2']='world' )</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出</span></span><br><span class="line">echo $&#123;table['word1']&#125; # 结果：hello</span><br><span class="line">echo $&#123;table['word2']&#125; # 结果：world</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash" target="_blank" rel="noopener">How to define hash tables in Bash?</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h1><h2 id="如何解析命令行参数？"><a href="#如何解析命令行参数？" class="headerlink" title="如何解析命令行参数？"></a>如何解析命令行参数？</h2><ul>
+<li><p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">while getopts ":ab:" arg; do</span><br><span class="line">  case $arg in</span><br><span class="line">    a) echo "a: no args" ;;</span><br><span class="line">    b) echo "b: $OPTARG" ;;</span><br><span class="line">    *) echo "default"    ;;</span><br><span class="line">  esac</span><br><span class="line">done</span><br><span class="line">shift "$(( $OPTIND - 1 ))"</span><br></pre></td></tr></table></figure></li>
+<li><p>说明：</p>
+<ul>
+<li>命令行传入参数的格式类似：<code>-a -b value</code>，并不支持由双横杠标记的长参数名，如：<code>--key value</code>。</li>
+<li>将 getopts 调用放在 while 条件语句中，循环解析各个选项参数，arg 变量将保存选项名，选项值（如果有的话）会放到系统自带的 OPTARG 变量中。</li>
+<li>在 while 条件语句中声明要解析哪些选项，如果选项为标记型选项，也就是无需传入变量值的选项，那么选项声明之后不能带冒号，反之一定要跟随冒号。<ul>
+<li>条件语句中没有罗列的选项，即使 case 中有对应处理逻辑也是无法解析，结果会报出错误信息并执行默认处理逻辑。</li>
+<li>在参数列表起始处插入引号，表示忽略解析错误的情况。</li>
+</ul>
+</li>
+<li>星号（*）之后的语句是默认处理逻辑，在参数无法解析时程序会执行该逻辑。</li>
+<li>循环结束后立即执行 <code>shift</code> 命令来左移参数列表，等同于从参数列表中移除已经解析过的选项参数，这样 $1 对应的就会是选项之后的第一个参数内容。<ul>
+<li>OPTIND 代表 getopts 命令即将操作的参数位序，每次循环结束 getopts 命令会自动更新它的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/16483119/an-example-of-how-to-use-getopts-in-bash" target="_blank" rel="noopener">An example of how to use getopts in bash</a></li>
+<li><a href="http://shouce.jb51.net/shell/internal.html#EX33" target="_blank" rel="noopener">Using getopts to read the options/arguments passed to a script</a></li>
+<li><a href="https://unix.stackexchange.com/questions/214141/explain-the-shell-command-shift-optind-1" target="_blank" rel="noopener">Explain the shell command: shift $(($optind - 1))</a></li>
+<li><a href="https://www.gnu.org/software/bash/manual/bash.html#Bourne-Shell-Builtins" target="_blank" rel="noopener">Bourne Shell Builtins</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="如何将-stderr-重定向到-stdout？"><a href="#如何将-stderr-重定向到-stdout？" class="headerlink" title="如何将 stderr 重定向到 stdout？"></a>如何将 stderr 重定向到 stdout？</h2><ul>
+<li><p>方法：</p>
+<pre><code class="shell">command 2&gt;&amp;1 &gt;/dev/null</code></pre>
+</li>
+<li><p>说明：</p>
+<ul>
+<li>两个数字代表文件描述符，其中 1 同 stderr，2 同 stdout，它们作为重定向的目标时前面需要带 &amp;。</li>
+<li>后一个重定向会将标准输出的内容再转入到文件 /dev/null 中。</li>
+</ul>
+</li>
+<li><p>参考：</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/2342826/how-can-i-pipe-stderr-and-not-stdout" target="_blank" rel="noopener">How can I pipe stderr, and not stdout?</a></li>
+<li><a href="https://www.gnu.org/software/bash/manual/bash.html#Redirections" target="_blank" rel="noopener">Redirections</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发技术</category>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>技巧</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
 </search>

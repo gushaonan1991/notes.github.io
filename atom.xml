@@ -56,6 +56,45 @@
   </entry>
   
   <entry>
+    <title>Shell 技巧</title>
+    <link href="https://hello-gsn.github.io/2020/10/26/Shell%20%E6%8A%80%E5%B7%A7/"/>
+    <id>https://hello-gsn.github.io/2020/10/26/Shell%20%E6%8A%80%E5%B7%A7/</id>
+    <published>2020-10-25T16:00:00.000Z</published>
+    <updated>2020-10-26T18:18:17.491Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#数据结构&quot;&gt;数据结构&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#如何定义表结构&quot;&gt;如何定义表结构？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#输入输出&quot;&gt;输入输出&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="开发技术" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="Linux" scheme="https://hello-gsn.github.io/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Linux/"/>
+    
+    
+      <category term="技巧" scheme="https://hello-gsn.github.io/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="linux" scheme="https://hello-gsn.github.io/tags/linux/"/>
+    
+      <category term="shell" scheme="https://hello-gsn.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vim 寄存器</title>
     <link href="https://hello-gsn.github.io/2020/10/20/Vim%20%E5%AF%84%E5%AD%98%E5%99%A8/"/>
     <id>https://hello-gsn.github.io/2020/10/20/Vim%20%E5%AF%84%E5%AD%98%E5%99%A8/</id>
