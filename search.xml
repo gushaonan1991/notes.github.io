@@ -665,6 +665,10 @@
     <title>Shell 技巧</title>
     <url>/2020/10/26/Shell%20%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<ul>
+<li><a href="#概念释疑">概念释疑</a><ul>
+<li><a href="#变量有几种作用域">变量有几种作用域？</a></li>
+</ul>
+</li>
 <li><a href="#数据结构">数据结构</a><ul>
 <li><a href="#如何定义表结构">如何定义表结构？</a></li>
 </ul>
@@ -672,6 +676,20 @@
 <li><a href="#输入输出">输入输出</a><ul>
 <li><a href="#如何解析命令行参数">如何解析命令行参数？</a></li>
 <li><a href="#如何将-stderr-重定向到-stdout">如何将 stderr 重定向到 stdout？</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="概念释疑"><a href="#概念释疑" class="headerlink" title="概念释疑"></a>概念释疑</h1><h2 id="变量有几种作用域？"><a href="#变量有几种作用域？" class="headerlink" title="变量有几种作用域？"></a>变量有几种作用域？</h2><ul>
+<li><p>Shell 中变量有三种作用域：</p>
+<ul>
+<li>全局：即在脚本内任何位置都可见，变量默认具备全局作用域。</li>
+<li>局部：仅在函数范围内可见，函数内用 local 修饰的变量具备局部作用域。</li>
+<li>环境：当前进程并其子进程都可见，使用 export 显示抛出的变量具备环境作用域。</li>
+</ul>
+</li>
+<li><p>参考：</p>
+<ul>
+<li><a href="http://c.biancheng.net/view/773.html" target="_blank" rel="noopener">Shell变量的作用域：Shell全局变量、环境变量和局部变量</a></li>
 </ul>
 </li>
 </ul>
