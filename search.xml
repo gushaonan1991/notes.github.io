@@ -315,6 +315,7 @@
 <li><a href="#替换技巧">替换技巧</a><ul>
 <li><a href="#如何实现零宽断言">如何实现零宽断言？</a></li>
 <li><a href="#如何改变正则的-magic-模式">如何改变正则的 magic 模式？</a></li>
+<li><a href="#如何设定贪婪或非贪婪匹配">如何设定贪婪或非贪婪匹配？</a></li>
 </ul>
 </li>
 <li><a href="#重复操作">重复操作</a><ul>
@@ -418,6 +419,77 @@
 <ul>
 <li><a href="http://vimdoc.sourceforge.net/htmldoc/pattern.html#/magic" target="_blank" rel="noopener">VimDoc#pattern#magic</a></li>
 <li><a href="http://yyq123.github.io/learn-vim/learn-vim-Regex-4MagicModes.html" target="_blank" rel="noopener">VIM学习笔记 4 种 Magic 模式</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="如何设定贪婪或非贪婪匹配？"><a href="#如何设定贪婪或非贪婪匹配？" class="headerlink" title="如何设定贪婪或非贪婪匹配？"></a>如何设定贪婪或非贪婪匹配？</h2><p>标准正则中，当问号（?）跟在其他限制符（*、+ 等）之后时，解析器会认定该匹配模式是非贪婪匹配。Vim 中没有类似问号（?）的标记符，它只是给特定的限制符赋予了贪婪或非贪婪匹配的语义。</p>
+<table>
+<thead>
+<tr>
+<th align="center">贪婪限制符</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*</td>
+<td align="center">0 到多次</td>
+</tr>
+<tr>
+<td align="center">\+</td>
+<td align="center">1 到多次</td>
+</tr>
+<tr>
+<td align="center">\=</td>
+<td align="center">0 或 1 次</td>
+</tr>
+<tr>
+<td align="center">\?</td>
+<td align="center">0 或 1 次</td>
+</tr>
+<tr>
+<td align="center">\{m, n}</td>
+<td align="center">m 到 n 次</td>
+</tr>
+<tr>
+<td align="center">\{m, }</td>
+<td align="center">m 到多次</td>
+</tr>
+<tr>
+<td align="center">\{, n}</td>
+<td align="center">0 到 n 次</td>
+</tr>
+<tr>
+<td align="center">\{m}</td>
+<td align="center">m 次</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">非贪婪限制符</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\{-}</td>
+<td align="center">0 到多次</td>
+</tr>
+<tr>
+<td align="center">\{-m, n}</td>
+<td align="center">m 到 n 次</td>
+</tr>
+<tr>
+<td align="center">\{-m, }</td>
+<td align="center">m 到多次</td>
+</tr>
+<tr>
+<td align="center">\{-, n}</td>
+<td align="center">0 到 n 次</td>
+</tr>
+</tbody></table>
+<ul>
+<li>参考：<ul>
+<li><a href="http://vimregex.com/#Non-Greedy" target="_blank" rel="noopener">Vim Greedy and NonGreedy</a></li>
 </ul>
 </li>
 </ul>
