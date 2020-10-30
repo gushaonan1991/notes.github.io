@@ -435,6 +435,10 @@
 <td align="center">0 到多次</td>
 </tr>
 <tr>
+<td align="center">{}</td>
+<td align="center">0 到多次</td>
+</tr>
+<tr>
 <td align="center">\+</td>
 <td align="center">1 到多次</td>
 </tr>
@@ -487,6 +491,12 @@
 <td align="center">0 到 n 次</td>
 </tr>
 </tbody></table>
+<p>需要注意“0 到多次”在不同匹配模式下的解释方法，看下面的例子：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 源字符串</span></span><br><span class="line">STARTaaaabbbbccccEND</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 匹配公式：A</span></span><br><span class="line">:'&lt;,'&gt;s/a*/-/g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 结果：B</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -S-T-A-R-T-b-b-b-b-c-c-c-c-E-N-D</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 匹配公式：B</span></span><br><span class="line">:'&lt;,'&gt;s/a\&#123;-&#125;/-/g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 结果：B</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -S-T-A-R-T<span class="_">-a</span><span class="_">-a</span><span class="_">-a</span><span class="_">-a</span>-b-b-b-b-c-c-c-c-E-N-D</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>在贪婪模式下：如果有匹配项则尽量匹配最大内容；如果没有匹配项则尝试将首个未匹配位（可以是空位）替换为目标字符。</li>
+<li>在非贪模式下：不论是否有匹配，都尝试将首个未匹配位（可以是空位）替换为目标字符。</li>
+</ol>
 <ul>
 <li>参考：<ul>
 <li><a href="http://vimregex.com/#Non-Greedy" target="_blank" rel="noopener">Vim Greedy and NonGreedy</a></li>
