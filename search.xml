@@ -242,6 +242,7 @@
 <li>将私有（private）方法改为包可见方法（package）。<ul>
 <li>让 test 代码目录下的测试类所在包与被测类所在包同名，这样测试类就能看见并使用被测类的包可见性方法。</li>
 <li>不同可见性代表不同的作用范围，进而代表方法的不同用途和目的，只因为要方便测试就改变方法可见性不太能让人接受。</li>
+<li>通过标志性注解（VisibleForTesting 等）说明设定 protected 或 package 可见性的原因仅是方便测试。</li>
 </ul>
 </li>
 <li>使用嵌套代理类。<ul>
@@ -255,9 +256,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>我认为方案一是相对合理的，首先就要想办法避免测试私有方法，一是合理设计测试用例，另外也要思考方法设计上是否合理，是否存在可以改善的 Code Smell。</p>
-<p>如果一定要测试，优先考虑方案三，虽然多加了一个嵌套类，但后期理解和维护会方便很多，而且 Idea 等 IDE 似乎也提供了便捷的标识性注解，在别的类使用了这些仅用来测试的嵌套类时 IDE 会给出异常提示。</p>
-<p>其次是方案四，最后是方案二，原则是尽量避免修改方法原有逻辑。</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>首推方案一，首先就要想办法避免测试私有方法，一是合理设计测试用例，另外也要思考方法设计上是否合理，是否存在可以改善的 Code Smell。<br>其次方案二，虽然会改变方法的可见性，但这种方式对类的友好度很高，不会增加冗余类，利于长期维护，而且使用标记型注解后能一定程度降低调用方理解难度。<br>再次方案三，Idea 等 IDE 似乎也提供了便捷的类标识性注解，如果其他类应用了仅用来测试的嵌套类时 IDE 会主动给出异常提示。<br>最后方案四，涉及反射的代码的可读性最差，而且会带来硬编码（如方法名等）问题，维护难度最高。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://www.artima.com/suiterunner/private.html" target="_blank" rel="noopener">Testing Private Methods with JUnit and SuiteRunner</a></li>
 <li><a href="https://softwareengineering.stackexchange.com/questions/375860/how-to-avoid-the-need-to-unit-test-private-methods" target="_blank" rel="noopener">How to avoid the need to Unit test private methods</a></li>
