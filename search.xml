@@ -752,6 +752,7 @@
 </li>
 <li><a href="#数据结构">数据结构</a><ul>
 <li><a href="#如何定义表结构">如何定义表结构？</a></li>
+<li><a href="#如何判断当前目录是哪里">如何判断当前目录是哪里？</a></li>
 </ul>
 </li>
 <li><a href="#输入输出">输入输出</a><ul>
@@ -793,6 +794,10 @@
 <li><a href="https://stackoverflow.com/questions/1494178/how-to-define-hash-tables-in-bash" target="_blank" rel="noopener">How to define hash tables in Bash?</a></li>
 </ul>
 </li>
+</ul>
+<h2 id="如何判断当前目录是哪里？"><a href="#如何判断当前目录是哪里？" class="headerlink" title="如何判断当前目录是哪里？"></a>如何判断当前目录是哪里？</h2><ul>
+<li>进入脚本时，当前目录位置是调用该脚本的命令或上级脚本所在的位置，注意不是脚本所在的位置。</li>
+<li>脚本内执行 cd 命令跳转到某一目录时，当前目录设定为该目录。</li>
 </ul>
 <h1 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h1><h2 id="如何解析命令行参数？"><a href="#如何解析命令行参数？" class="headerlink" title="如何解析命令行参数？"></a>如何解析命令行参数？</h2><ul>
 <li><p>示例：</p>
