@@ -31,3 +31,9 @@ tags: [工具, 应用, 入门, 测试]
 
    参考：
    * [Multiple RunWith Statements in JUnit](https://stackoverflow.com/questions/24431427/multiple-runwith-statements-in-junit)
+
+2. 仅希望 mock 特定方法，其他均调用实际方法，如何实现？
+   
+   1. 以 `Mockito.spy()` 替换 `Mockito.mock()`，两者区别是 spy 方式默认调用实际方法，mock 方式默认不做处理。
+
+   2. 使用 `Mockito.doCallRealMethod()`。
