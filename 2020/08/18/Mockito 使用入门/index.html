@@ -79,7 +79,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">144</span>
+            <span class="post-count">201</span>
         </span>
     </span>
 
@@ -130,6 +130,14 @@
 <ul>
 <li><a href="https://stackoverflow.com/questions/24431427/multiple-runwith-statements-in-junit" target="_blank" rel="noopener">Multiple RunWith Statements in JUnit</a></li>
 </ul>
+</li>
+<li><p>仅希望 mock 特定方法，其他均调用实际方法，如何实现？</p>
+<ol>
+<li><p>以 <code>Mockito.spy()</code> 替换 <code>Mockito.mock()</code>，两者区别是 spy 方式默认调用实际方法，mock 方式默认不做处理。</p>
+</li>
+<li><p>使用 <code>Mockito.doCallRealMethod()</code>。</p>
+</li>
+</ol>
 </li>
 </ol>
  
