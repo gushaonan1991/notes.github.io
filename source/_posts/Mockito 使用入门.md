@@ -2,7 +2,7 @@
 title: Mockito 使用入门
 date: 2020-08-18
 categories: [开发技术, Java, 工具应用]
-tags: [工具, 应用, 入门, 测试]
+tags: [Mockito, 工具, 应用, 入门, 测试]
 ---
 - [基础入门](#基础入门)
 - [应用进阶](#应用进阶)
